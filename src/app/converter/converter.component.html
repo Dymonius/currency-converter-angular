@@ -1,12 +1,14 @@
 <div class="wrapper">
   <div class="converter">
+    <h1 class="converter__header">Currency Converter Fixer API</h1>
     <div class="converter__first-currency">
-      <input
-        type="number"
-        [(ngModel)]="firstAmount"
-        (input)="firstAmountChange()"
+      <input class="converter__first-input"
+             type="number"
+             [(ngModel)]="firstAmount"
+             (input)="firstAmountChange()"
       />
       <select
+        class="converter__first-select"
         name="currencies"
         [(ngModel)]="firstSelected"
         (change)="firstCurrencyChange()"
@@ -18,12 +20,13 @@
       </select>
     </div>
     <div class="converter__second-currency">
-      <input
-        type="number"
-        [(ngModel)]="secondAmount"
-        (input)="secondAmountChange()"
+      <input class="converter__second-input"
+             type="number"
+             [(ngModel)]="secondAmount"
+             (input)="secondAmountChange()"
       />
       <select
+        class="converter__second-select"
         name="currencies"
         [(ngModel)]="secondSelected"
         (change)="secondCurrencyChange()"

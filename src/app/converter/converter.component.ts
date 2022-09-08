@@ -14,7 +14,6 @@ export class ConverterComponent implements OnInit {
   allCurrencies: string[] = [];
   currencies: any;
 
-
   constructor(private currenciesData: CurrenciesDataService) {
     currenciesData.getCurrencies().subscribe((data) => {
       this.currencies = data.rates;
@@ -26,9 +25,6 @@ export class ConverterComponent implements OnInit {
       ).toFixed(2);
       console.log(this.currencies)
     });
-  }
-
-  ngOnInit(): void {
   }
 
   firstAmountChange() {
@@ -58,5 +54,8 @@ export class ConverterComponent implements OnInit {
       (this.secondAmount * this.currencies[this.firstSelected]) /
       this.currencies[this.secondSelected]
     ).toFixed(2);
+  }
+
+  ngOnInit(): void {
   }
 }
