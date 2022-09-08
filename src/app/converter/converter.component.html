@@ -1,8 +1,38 @@
-<div *ngFor="let currency of currencies">
-  <h3>{{currency.ccy}} {{currency.buy}}</h3>
+<div class="wrapper">
+  <div class="converter">
+    <div class="converter__first-currency">
+      <input
+        type="number"
+        [(ngModel)]="firstAmount"
+        (input)="firstAmountChange()"
+      />
+      <select
+        name="currencies"
+        [(ngModel)]="firstSelected"
+        (change)="firstCurrencyChange()"
+      >
+        <option
+          [value]="currency"
+          *ngFor="let currency of allCurrencies"
+        >{{currency}}</option>
+      </select>
+    </div>
+    <div class="converter__second-currency">
+      <input
+        type="number"
+        [(ngModel)]="secondAmount"
+        (input)="secondAmountChange()"
+      />
+      <select
+        name="currencies"
+        [(ngModel)]="secondSelected"
+        (change)="secondCurrencyChange()"
+      >
+        <option
+          [value]="currency"
+          *ngFor="let currency of allCurrencies"
+        >{{currency}}</option>
+      </select>
+    </div>
+  </div>
 </div>
-
-<input type="number">
-<select name="currencies">
-  <option [value]="currency.ccy" *ngFor="let currency of currencies">{{currency.ccy}}</option>
-</select>
