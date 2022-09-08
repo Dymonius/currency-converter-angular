@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+
 interface DataFromServer {
   base: string;
   date: string;
@@ -12,10 +13,13 @@ interface DataFromServer {
   providedIn: 'root',
 })
 export class CurrenciesDataService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
+
   getCurrencies() {
+    const headers = {'apikey': 'AmEvFpvDnrlfeusVIkUtJ6Mg4codDmqM'}
     return this.http.get<DataFromServer>(
-      'http://data.fixer.io/api/latest?access_key=c2b6331e4e270746bc2b2c08f3cbce7a'
+      'https://api.apilayer.com/fixer/latest', {headers}
     );
   }
 }

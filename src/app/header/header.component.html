@@ -1,6 +1,6 @@
 <header>
   <div class="course">
-    <div class="course_eur">EUR/UAH {{currencies[1]?.buy | number: '.0-2'}}</div>
-    <div class="course_usd">USD/UAH {{currencies[0]?.buy | number: '.0-2'}}</div>
+    <div class="course__eur">EUR <span class="course__uah course__uah--margin">UAH</span>{{usd | number: '.0-3'}}</div>
+    <div class="course__usd">USD <span class="course__uah">UAH</span>{{eur | number: '.0-3'}}</div>
   </div>
 </header>
