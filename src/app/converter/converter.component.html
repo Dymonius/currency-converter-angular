@@ -1,0 +1,8 @@
+<div *ngFor="let currency of currencies">
+  <h3>{{currency.ccy}} {{currency.buy}}</h3>
+</div>
+
+<input type="number">
+<select name="currencies">
+  <option [value]="currency.ccy" *ngFor="let currency of currencies">{{currency.ccy}}</option>
+</select>

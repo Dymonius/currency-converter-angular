@@ -1,3 +1,6 @@
-<div *ngFor="let currency of currencies">
-  <h3>{{currency.ccy}} {{currency.buy}}</h3>
-</div>
+<app-header [currencies]="currencies"></app-header>
+<app-converter [currencies]="currencies"></app-converter>
+
+
+
+

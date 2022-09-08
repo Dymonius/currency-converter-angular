@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
+import { ConverterComponent } from './converter/converter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConverterComponent
   ],
   imports: [
     BrowserModule,
