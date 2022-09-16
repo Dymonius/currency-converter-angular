@@ -1,20 +1,22 @@
 <div class="wrapper">
-  <div class="converter">
-    <h1 class="converter__header">Currency Converter Fixer API</h1>
+  <div class="converter" [formGroup]="registrationForm">
+    <h1 class="converter__header">Currency Converter Fixer API with Form Group</h1>
     <div class="converter__first-currency">
       <input class="converter__first-input"
              type="number"
+             [formControl]="firstInput"
              [(ngModel)]="firstAmount"
-             (input)="firstAmountChange()"
+             (input)="amountChange('first-input')"
       />
       <select
         class="converter__first-select"
         name="currencies"
+        [formControl]="firstSelect"
         [(ngModel)]="firstSelected"
-        (change)="firstCurrencyChange()"
+        (change)="currencyChange('first-select')"
       >
         <option
-          [value]="currency"
+          [ngValue]="currency"
           *ngFor="let currency of allCurrencies"
         >{{currency}}</option>
       </select>
@@ -22,17 +24,19 @@
     <div class="converter__second-currency">
       <input class="converter__second-input"
              type="number"
+             [formControl]="secondInput"
              [(ngModel)]="secondAmount"
-             (input)="secondAmountChange()"
+             (input)="amountChange('second-input')"
       />
       <select
         class="converter__second-select"
         name="currencies"
+        [formControl]="secondSelect"
         [(ngModel)]="secondSelected"
-        (change)="secondCurrencyChange()"
+        (change)="currencyChange('second-select')"
       >
         <option
-          [value]="currency"
+          [ngValue]="currency"
           *ngFor="let currency of allCurrencies"
         >{{currency}}</option>
       </select>

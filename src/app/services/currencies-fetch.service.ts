@@ -17,7 +17,7 @@ export class CurrenciesDataService {
   }
 
   getCurrencies() {
-    const headers = {'apikey': 'AmEvFpvDnrlfeusVIkUtJ6Mg4codDmqM'}
+    const headers = {'apikey': 'WZ23EfshBSLNX9nU6cQgVePVRwyRrGsz'}
     return this.http.get<DataFromServer>(
       'https://api.apilayer.com/fixer/latest', {headers}
     );
