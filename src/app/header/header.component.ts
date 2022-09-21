@@ -8,8 +8,8 @@ import {CurrenciesDataService} from "../services/currencies-fetch.service";
 })
 export class HeaderComponent implements OnInit {
   currencies: any;
-  usd = 0;
-  eur = 0;
+  usd: number = 0;
+  eur: number = 0;
 
   constructor(private currenciesData: CurrenciesDataService) {
     currenciesData.getCurrencies().subscribe((data) => {

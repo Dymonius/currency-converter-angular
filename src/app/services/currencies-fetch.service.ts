@@ -6,7 +6,7 @@ interface DataFromServer {
   date: string;
   rates: Object;
   success: boolean;
-  timeSTAMP: number;
+  motd: Object;
 }
 
 @Injectable({
@@ -17,9 +17,6 @@ export class CurrenciesDataService {
   }
 
   getCurrencies() {
-    const headers = {'apikey': 'WZ23EfshBSLNX9nU6cQgVePVRwyRrGsz'}
-    return this.http.get<DataFromServer>(
-      'https://api.apilayer.com/fixer/latest', {headers}
-    );
+    return this.http.get<DataFromServer>('https://api.exchangerate.host/latest');
   }
 }
