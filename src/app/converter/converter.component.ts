@@ -27,10 +27,10 @@ export class ConverterComponent implements OnInit {
       ).toFixed(2);
     });
     this.registrationForm = new FormGroup({
-      firstInput: new FormControl(this.firstAmount),
-      secondInput: new FormControl(this.secondAmount),
-      firstSelect: new FormControl(this.firstSelected),
-      secondSelect: new FormControl(this.secondSelected)
+      firstInput: new FormControl(),
+      secondInput: new FormControl(),
+      firstSelect: new FormControl(),
+      secondSelect: new FormControl()
     });
   }
 
