@@ -1,0 +1,12 @@
+<select
+  class="converter__first-select"
+  [(ngModel)]="selected"
+  (change)="currencyChange()"
+  #currencySelect
+>
+  <option
+    *ngFor="let currency of allCurrencies"
+    [ngValue]="currency"
+  >{{currency}}</option>
+</select>
+

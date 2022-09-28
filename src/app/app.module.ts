@@ -6,12 +6,16 @@ import {HttpClientModule} from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
 import { ConverterComponent } from './converter/converter.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { InputComponent } from './input/input.component';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ConverterComponent
+    ConverterComponent,
+    InputComponent,
+    SelectComponent
   ],
     imports: [
         BrowserModule,

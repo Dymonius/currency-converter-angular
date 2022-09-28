@@ -27,38 +27,43 @@ export class ConverterComponent implements OnInit {
       ).toFixed(2);
     });
     this.registrationForm = new FormGroup({
-      firstInput: new FormControl(),
-      secondInput: new FormControl(),
-      firstSelect: new FormControl(),
-      secondSelect: new FormControl()
+      firstInput: new FormControl(this.firstAmount),
+      secondInput: new FormControl(this.secondAmount),
+      firstSelect: new FormControl(this.firstSelected),
+      secondSelect: new FormControl(this.secondSelected)
     });
   }
 
-  amountChange(flag: string) {
-    if (flag === 'first-input') {
+  updateAmount($event: any) {
+    if ($event.flag === 'first-input') {
+      this.firstAmount = $event.amount;
       this.secondAmount = +(
         (this.firstAmount * this.currencies[this.secondSelected]) /
         this.currencies[this.firstSelected]
       ).toFixed(2);
-    } else if (flag === 'second-input') {
+      this.registrationForm.patchValue({secondInput: +this.secondAmount})
+      this.registrationForm.patchValue({firstInput: +this.firstAmount})
+    } else if ($event.flag === 'second-input') {
+      this.secondAmount = $event.amount;
       this.firstAmount = +(
         (this.secondAmount * this.currencies[this.firstSelected]) /
         this.currencies[this.secondSelected]
       ).toFixed(2);
+      this.registrationForm.patchValue({firstInput: +this.firstAmount})
+      this.registrationForm.patchValue({secondInput: +this.secondAmount})
     }
+    console.log(this.registrationForm.value)
   }
 
-  currencyChange(flag: string) {
-    if (flag === 'first-select') {
-      this.secondAmount = +(
-        (this.firstAmount * this.currencies[this.secondSelected]) /
-        this.currencies[this.firstSelected]
-      ).toFixed(2);
-    } else if (flag === 'second-select') {
-      this.firstAmount = +(
-        (this.secondAmount * this.currencies[this.firstSelected]) /
-        this.currencies[this.secondSelected]
-      ).toFixed(2);
+  updateCurrency($event: any) {
+    if ($event.flag === 'first-input') {
+      this.firstSelected = $event.selected;
+      this.registrationForm.patchValue({firstSelect: this.firstSelected})
+      this.updateAmount({flag: 'first-input', amount: this.firstAmount})
+    } else if($event.flag === 'second-input') {
+      this.secondSelected = $event.selected;
+      this.registrationForm.patchValue({secondSelect: this.secondSelected})
+      this.updateAmount({flag: 'second-input', amount: this.secondAmount})
     }
   }
 
