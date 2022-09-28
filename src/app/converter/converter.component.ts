@@ -15,7 +15,12 @@ export class ConverterComponent implements OnInit {
   allCurrencies: string[] = [];
   currencies: any;
 
-  registrationForm: FormGroup;
+  public registrationForm = new FormGroup({
+    firstInput: new FormControl(this.firstAmount),
+    secondInput: new FormControl(this.secondAmount),
+    firstSelect: new FormControl(this.firstSelected),
+    secondSelect: new FormControl(this.secondSelected)
+  });
 
   constructor(private currenciesData: CurrenciesDataService) {
     currenciesData.getCurrencies().subscribe((data) => {
@@ -25,12 +30,6 @@ export class ConverterComponent implements OnInit {
         (this.firstAmount * this.currencies[this.secondSelected]) /
         this.currencies[this.firstSelected]
       ).toFixed(2);
-    });
-    this.registrationForm = new FormGroup({
-      firstInput: new FormControl(this.firstAmount),
-      secondInput: new FormControl(this.secondAmount),
-      firstSelect: new FormControl(this.firstSelected),
-      secondSelect: new FormControl(this.secondSelected)
     });
   }
 
@@ -60,7 +59,7 @@ export class ConverterComponent implements OnInit {
       this.firstSelected = $event.selected;
       this.registrationForm.patchValue({firstSelect: this.firstSelected})
       this.updateAmount({flag: 'first-input', amount: this.firstAmount})
-    } else if($event.flag === 'second-input') {
+    } else if ($event.flag === 'second-input') {
       this.secondSelected = $event.selected;
       this.registrationForm.patchValue({secondSelect: this.secondSelected})
       this.updateAmount({flag: 'second-input', amount: this.secondAmount})
